@@ -1,5 +1,5 @@
 /*
-    Basic ch09 / 23.04.13 leejuchan
+    Basic / 23.04.13 leejuchan
 
     @brief : 배열
     @details : 
@@ -24,7 +24,8 @@ let arr2 = [    // 숫자, 문자, 객체, 함수 모두 담기 가능
 
 // 인덱스 접근
 arr2[0] = 5;
-console.log(arr2[3]);
+console.log(arr2[0]);
+
 console.log(arr2.length); // length : 배열 길이
 console.log("-----------------");
 

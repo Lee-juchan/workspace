@@ -1,5 +1,5 @@
 /*
-    Basic ch08 / 23.04.13 leejuchan
+    Basic / 23.04.13 leejuchan
 
     @brief : 객체
     @details : 객체object, 프로퍼티property, 메소드method / in, for...in

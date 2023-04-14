@@ -1,5 +1,5 @@
 /*
-    Basic ch06 / 23.04.12 leejuchan
+    Basic / 23.04.12 leejuchan
 
     @brief : 반복문
     @details : for, while / break, continue

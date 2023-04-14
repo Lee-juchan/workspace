@@ -1,5 +1,5 @@
 /*
-    Basic ch07 / 23.04.12 leejuchan
+    Basic / 23.04.12 leejuchan
 
     @breif : 함수
     @details : 함수 선언식|표현식, 화살표 함수
