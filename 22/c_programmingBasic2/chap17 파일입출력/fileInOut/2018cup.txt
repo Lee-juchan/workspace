@@ -1,0 +1,4 @@
+Sweden 5
+Mexico 3
+Korea 2
+Germany 2

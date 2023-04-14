@@ -1,0 +1,4 @@
+﻿  floating_overflow.c
+C:\Users\leeju\source\repos\floating_overflow\floating_overflow.c(6,1): warning C4056: 부동 소수점 상수 산술 연산에서 오버플로가 발생했습니다.
+C:\Users\leeju\source\repos\floating_overflow\floating_overflow.c(6): warning C4756: 상수 산술 연산에서 오버플로가 발생했습니다.
+  floating_overflow.vcxproj -> C:\Users\leeju\source\repos\floating_overflow\Debug\floating_overflow.exe
