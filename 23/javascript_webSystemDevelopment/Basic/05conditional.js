@@ -2,10 +2,11 @@
     Basic / 23.04.13 leejuchan
 
     @breif : 조건문
-    @details : if, switch
+    @details : 1. if
+               2. switch
 */
 
-// if문  (if, else if, else)
+// 1. if문  (if, else if, else)
 console.log("----------------");
 console.log("- 나이 판별");
 
@@ -20,7 +21,7 @@ if (age > 19) {
 }
 
 
-// switch
+// 2. switch
 console.log("----------------");
 console.log("- 과일 가격")
 

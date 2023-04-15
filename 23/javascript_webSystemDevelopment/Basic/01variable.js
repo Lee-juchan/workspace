@@ -2,11 +2,12 @@
     #Basic / 23.04.13 leejuchan
 
     @brief : 변수
-    @details : var, let, const
+    @details : 1. variable ( var, let, const )
 */
 
-// 변수 선언
-var name = "Mike";
+// 1. 변수
+
+var name = "Mike"; // 변수 선언
 let age = 30;
 const GENDER = "men"; // 대문자 지향
 
@@ -14,8 +15,6 @@ const GENDER = "men"; // 대문자 지향
 // GENDER = "women";     / const 변경 x
 // class = "math";       / 예약어 x
 
-
-// 변수 출력
-console.log(`var : ${name}`);
+console.log(`var : ${name}`); // 변수 출력
 console.log(`let : ${age}`);
 console.log(`const : ${GENDER}`);

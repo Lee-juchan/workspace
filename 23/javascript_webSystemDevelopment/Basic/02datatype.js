@@ -2,10 +2,12 @@
     Basic / 23.04.13 leejuchan
 
     @brief : 자료형
-    @details : string, number, boolean, null|undefined  / typeof
+    @details : 1. datatype ( string, number, boolean, null|undefined )
+               2. typeof
 */
 
-// string 문자형
+// 1. datatype
+// 1-1. string 문자형
 let str1 = "Mike";
 let str2 = 'Make';
 let str3 = `Maze`;
@@ -16,7 +18,7 @@ console.log(`string : ${str1}, ${str2}, ${str3}, ${str4}, ${str5}`);
 console.log("------------------------");
 
 
-// Number 숫자형
+// 1-2. number 숫자형
 let num1 = 10;
 const PI = 3.14;
 let num3 = 3/0;     // Infinity
@@ -26,7 +28,7 @@ console.log(`number : ${num1}, ${PI}, ${num3}, ${num4}`);
 console.log("------------------------");      
 
 
-// Boolean
+// 1-3. boolean
 let bool1 = true;
 let bool2 = false;
 
@@ -34,7 +36,7 @@ console.log(`boolean : ${bool1}, ${bool2}`);
 console.log("------------------------");  
 
 
-// undefined, null
+// 1-4. undefined, null
 let data1;          // undefined
 let data2 = null;   // null
 
@@ -42,7 +44,8 @@ console.log(`null, undefined : ${data1}, ${data2}`);
 console.log("------------------------");  
 
 
-// typeof : 변수 타입 확인
+
+// 2. typeof : 변수 타입 확인
 let type1 = typeof str1;    //string
 let type2 = typeof num1;    // number
 let type3 = typeof bool1;   // boolean

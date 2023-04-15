@@ -2,12 +2,14 @@
     Basic / 23.04.12 leejuchan
 
     @breif : 함수
-    @details : 함수 선언식|표현식, 화살표 함수
+    @details : 1. function (parameter o|x, return)
+               2. 함수 선언식|표현식
+               3. 화살표 함수
 */
 
-//function
+//1. function
 
-// parameter x
+// 1-1-1. parameter x
 function showError() {
     console.log("Error, Try again!");
 }
@@ -15,7 +17,7 @@ showError();
 console.log("-----------------");
 
 
-// parameter o
+// 1-1-2. parameter o
 function sayHello(name) {
     let msg = "Hello"
     if (name) {             // name != undefined 인 경우
@@ -29,7 +31,7 @@ sayHello("Ljc");
 console.log("-----------------");
 
 
-// parameter default
+// 1-1-3. parameter default
 
 // OR
 function sayHi(name) {
@@ -51,7 +53,7 @@ sayHi("Ljc");
 console.log("-----------------");
 
 
-// return
+// 1-2. return
 function add(num1, num2) {
     return num1 + num2;
 }
@@ -60,7 +62,7 @@ console.log(`showError() = ${showError()}`); // void함수 = undefined 반환
 console.log("-----------------");
 
 
-// 함수 선언문, 표현식
+// 2. 함수 선언문, 표현식
 
 // 선언문 : 어디서든 호출 가능 (호이스팅)
 sayGood();
@@ -77,7 +79,7 @@ sayBad();
 console.log("-----------------");
 
 
-// 화살표 함수(arrow function)
+// 3. 화살표 함수 (arrow function)
 // ex1
 let printA = () => console.log("A");
 printA();
