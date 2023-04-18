@@ -21,11 +21,11 @@ console.log("------------------------");
 // 1-2. number 숫자형
 let num1 = 10;
 const PI = 3.14;
-let num3 = 3/0;     // Infinity
-let num4 = str1/3;  // NaN : Not a Number
+let num3 = 3 / 0;     // Infinity
+let num4 = str1 / 3;  // NaN : Not a Number
 
-console.log(`number : ${num1}, ${PI}, ${num3}, ${num4}`); 
-console.log("------------------------");      
+console.log(`number : ${num1}, ${PI}, ${num3}, ${num4}`);
+console.log("------------------------");
 
 
 // 1-3. boolean
@@ -33,7 +33,7 @@ let bool1 = true;
 let bool2 = false;
 
 console.log(`boolean : ${bool1}, ${bool2}`);
-console.log("------------------------");  
+console.log("------------------------");
 
 
 // 1-4. undefined, null
@@ -41,7 +41,7 @@ let data1;          // undefined
 let data2 = null;   // null
 
 console.log(`null, undefined : ${data1}, ${data2}`);
-console.log("------------------------");  
+console.log("------------------------");
 
 
 

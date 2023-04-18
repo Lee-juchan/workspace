@@ -59,7 +59,7 @@ console.log("-----------------");
 // ex1
 
 // person의 성인 여부 판단함수
-let isAdult = function (person) { 
+let isAdult = function (person) {
     if (("age" in person) && person.age > 19) { // user에 age가 있고 성인이면 true
         return true;
     }
@@ -87,7 +87,7 @@ let p3 = {
     age: 20,
 };
 
-for (key in p3) { // 키, 값 출력
+for (let key in p3) { // 키, 값 출력
     console.log(`p3[${key}] : ${p3[key]}`);
 }
 console.log("-----------------");
@@ -99,7 +99,7 @@ console.log("-----------------");
 // 3-1. 메소드의 this : 호출 객체
 let p4 = {
     name: "D",
-    showName: function() {
+    showName: function () {
         console.log(`name : ${this.name}`);
     }
 };
@@ -109,8 +109,8 @@ console.log("-----------------");
 
 // 3-2. 화살표 함수의 this       / 메소드 내부, 화살표 함수 지양
 let p5 = {
-    name : "E",
-    sayThis : () => {
+    name: "E",
+    sayThis: () => {
         console.log(`this : ${this}`);
     }
 };
