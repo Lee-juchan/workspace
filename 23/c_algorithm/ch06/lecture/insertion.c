@@ -1,14 +1,12 @@
 /*
     #practice 06-04 / 23.04.20 leejuchan
 
-    @brief : 단순선택 정렬
-    @details : 정렬되지 않은 부분의 가장 작은 값을 찾아, 첫번째 요소와 교환
+    @brief : 단순삽입 정렬
+    @details : 정렬되지 않은 부분의 값을, 정렬된 부분의 알맞은 위치에 삽입
 */
 
 #include <stdio.h>
 #include <stdlib.h>
-
-#define swap(type, x, y) do {type t = x; x = y; y = t;} while(0)
 
 typedef int element;
 
@@ -20,7 +18,7 @@ void selection(element arr[], int num);
 int main(void)
 {
     int i, numData;
-    int *data;
+    element *data;
 
     puts("< selection sorting >");
 
@@ -41,9 +39,8 @@ int main(void)
     // 정렬
     selection(data, numData);
 
-    puts("Sort in ascending order");
-
     // 결과 출력
+    puts("Sort in ascending order");
     printArr(data, numData);
 
     free(data);
@@ -61,25 +58,20 @@ void printArr(element arr[], int num)
     printf("\n");
 }
 
-// 선택 정렬
+// 삽입 정렬
 void selection(element arr[], int num)
 {
-    int pass, i, minIdx;
+    int sortIdx, i;
 
-    // pass : 0 ~ n-1
-    for (pass = 0; pass < num - 1; pass++)
+    for(sortIdx = 1; sortIdx < num; sortIdx++)
     {
-        // 최소값 탐색
-        minIdx = pass;
-        for (i = pass + 1; i < num; i++)
-        {
-            if(arr[i] < arr[minIdx])
-            {
-                minIdx = i;
-            }
-        }
+        element tmp = arr[sortIdx];// 현재 값
 
-        // 최소값과 교환
-        swap(element, arr[pass], arr[minIdx]);
+        // 알맞은 위치에 삽입
+        for(i = sortIdx; (i > 0 && arr[i - 1] > tmp); i--)
+        {
+            arr[i] = arr[i - 1];// 배열 요소 뒤로 밀기
+        }
+        arr[i] = tmp; // 현재 값 저장
     }
 }

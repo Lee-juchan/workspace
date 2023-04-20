@@ -1,8 +1,8 @@
 /*
-    #lecture 06-01 / 23.04.19 leejuchan
+    #lecture 06-02 / 23.04.19 leejuchan
 
-    @brief : 버블정렬 1
-    @details : 인접한 요소와 차례대로 값 교환
+    @brief : 버블정렬 3
+    @details : 마지막으로 교환한 요소로, 다음에 수행할 pass의 범위 줄이기
 */
 
 #include <stdio.h>
@@ -14,7 +14,7 @@
 typedef int element;
 
 // 함수 원형
-void bubble1(element data[], int numData);
+void bubble3(element data[], int numData);
 
 // 메인
 int main(void)
@@ -39,7 +39,7 @@ int main(void)
     printf("\n");
 
     // 정렬
-    bubble1(data, numData);
+    bubble3(data, numData);
 
     puts("Sort in ascending order");
 
@@ -54,22 +54,24 @@ int main(void)
     return 0;
 }
 
-
-// 버블 정렬 1 (기본)
-void bubble1(element data[], int numData)
+// 버블 정렬 3 (마지막으로 교환한 요소로, 다음에 수행할 pass의 범위 줄이기)
+void bubble3(element data[], int numData)
 {
-    int pass, i;
-    
-    // pass 반복 (n-1회)
-    for (pass = 0; pass < numData - 1; pass++)
+    int sortRange = 0;
+    while (sortRange < numData - 1)
     {
-        // pass 수행 (대상 : pass ~ n-1) / ex) 1번째 pass를 수행할때, 1개의 요소가 정렬되어 있음
-        for (i = numData - 1; i > pass; i--)
+        int i;
+        int lastExchg = numData - 1;
+
+        // pass 수행
+        for (i = numData - 1; i > sortRange; i--)
         {
             if (data[i - 1] > data[i])
             {
                 swap(element, data[i - 1], data[i]);
+                lastExchg = i;
             }
         }
+        sortRange = lastExchg;
     }
 }

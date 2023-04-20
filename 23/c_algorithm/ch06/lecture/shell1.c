@@ -1,8 +1,9 @@
 /*
     #practice 06-04 / 23.04.20 leejuchan
 
-    @brief : 셸 정렬 2
-    @details : h값 변형
+    @brief : 셸 정렬 (<- 단순삽입 정렬)
+    @details : 요소를 그룹으로 나눠 그룹별로 미리 정렬하고, 그룹을 합치면서 반복
+                (단순삽입 정렬 : 정렬에 가까운 배열일때, 속도가 매우 빠름)
 */
 
 #include <stdio.h>
@@ -59,18 +60,15 @@ void printArr(element arr[], int num)
     printf("\n");
 }
 
-// 셸 정렬 2
+// 셸 정렬 1
 void shell1(element arr[], int num)
 {
     int sortIdx, i, h, offset;
 
-    // h값 초기값
-    for (h = 1; h < num / 9; h = h * 3 + 1);
-
     // h값 설정
-    for (h; h > 0; h /= 3)
+    for (h = num / 2; h > 0; h /= 2)
     {
-        // h-정렬, 각 그룹 반복
+        // h-정렬, 각 그룹(offset) 반복
         for (int offset = 0; offset < h; offset++)
         {
             // 거리가 h만큼 떨어진 그룹, 단순 삽입 정렬
@@ -78,11 +76,9 @@ void shell1(element arr[], int num)
             {
                 element tmp = arr[sortIdx]; // 현재 값 저장
 
-
                 // 알맞은 위치에 삽입
                 for (i = sortIdx - h; (i >= 0 && arr[i] > tmp); i -= h)
                 {
-                // printf("-h : %d\n-temp : %d\n %d %d\n", h, tmp, arr[i+h], arr[i]);
                     arr[i + h] = arr[i];
                 }
 

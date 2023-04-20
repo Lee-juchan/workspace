@@ -1,14 +1,19 @@
 /*
     #practice 06-04 / 23.04.20 leejuchan
 
-    @brief : 셸 정렬 2
-    @details : h값 변형
+    @brief : 셸 정렬 2 심화
+    @details : 셸 정렬 불안정성unstable 입증
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef int element;
+// 배열 요소 정의
+typedef struct
+{
+    int key;
+    int id;
+} element;
 
 // prototype
 void printArr(element arr[], int num);
@@ -33,7 +38,9 @@ int main(void)
     for (i = 0; i < numData; i++)
     {
         printf("data[%2d] : ", i);
-        scanf("%d", &data[i]);
+        scanf("%d", &data[i].key);
+
+        data[i].id = i + 1; // id 일괄 부여
     }
     printf("\n");
 
@@ -54,7 +61,7 @@ void printArr(element arr[], int num)
 {
     for (int i = 0; i < num; i++)
     {
-        printf("data[%2d] : %d\n", i, arr[i]);
+        printf("data[%2d] : %d (id : %d)\n", i, arr[i].key, arr[i].id);
     }
     printf("\n");
 }
@@ -80,9 +87,8 @@ void shell1(element arr[], int num)
 
 
                 // 알맞은 위치에 삽입
-                for (i = sortIdx - h; (i >= 0 && arr[i] > tmp); i -= h)
+                for (i = sortIdx - h; (i >= 0 && arr[i].key > tmp.key); i -= h)
                 {
-                // printf("-h : %d\n-temp : %d\n %d %d\n", h, tmp, arr[i+h], arr[i]);
                     arr[i + h] = arr[i];
                 }
 

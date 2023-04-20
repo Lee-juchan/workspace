@@ -15,7 +15,7 @@
 typedef int element;
 
 // 함수 원형
-void bubble2(element data[], int numData);
+void bubble3(element data[], int numData);
 
 // 메인
 int main(void)
@@ -40,7 +40,7 @@ int main(void)
     printf("\n");
 
     // 정렬
-    bubble2(data, numData);
+    bubble3(data, numData);
 
     puts("Sort in ascending order");
 
@@ -56,7 +56,7 @@ int main(void)
 }
 
 // 버블 정렬 2 (정렬횟수 0일때 작업 멈춤)
-void bubble2(element data[], int numData)
+void bubble3(element data[], int numData)
 {
     int pass, i, j;
     int cmprCnt = 0; // 총 비교, 교환 횟수
