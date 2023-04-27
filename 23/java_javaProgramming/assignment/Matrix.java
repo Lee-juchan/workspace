@@ -28,7 +28,7 @@ public class Matrix {
         
         int rA = A.length;
         int cA = A[0].length;
-        int rB = B.length;
+        // int rB = B.length; 사실 사용 안함
         int cB = B[0].length;
 
         // 결과 저장

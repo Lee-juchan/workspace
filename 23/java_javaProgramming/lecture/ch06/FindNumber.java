@@ -49,6 +49,8 @@ public class FindNumber {
             arr[randIdx] = num;
         }
 
+        sc.close();
+        
         return arr;
     }
 
