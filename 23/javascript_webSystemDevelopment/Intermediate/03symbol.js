@@ -87,5 +87,3 @@ console.log("-----------------");
 console.log(Object.getOwnPropertySymbols(p1)); // 심볼만 확인
 console.log(Reflect.ownKeys(p1)); // 심볼 포함한 모든 키 확인
 console.log("-----------------");
-
-

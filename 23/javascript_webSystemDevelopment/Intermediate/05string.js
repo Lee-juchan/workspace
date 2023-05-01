@@ -105,7 +105,7 @@ console.log(newList);
 console.log("---------------------");
 
 
-// ex2-1
+// ex1-2
 // 금칙어 : bad
 let hasBad = function(str) {
     if(str.indexOf("bad") > -1) { // if ( str.includes("bad") )
