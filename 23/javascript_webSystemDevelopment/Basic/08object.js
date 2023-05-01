@@ -7,7 +7,7 @@
                3. 메소드 method (this 메소드|화살표 함수)
 */
 
-//1. object
+// 1. object
 let person = {
     name: "clark", // 프로퍼티 
     age: 33,
