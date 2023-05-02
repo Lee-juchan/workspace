@@ -1,0 +1,177 @@
+/*
+    #assignment / 23.05.02 leejuchan
+
+    @brief : 배열 순회 메소드 구현
+    @details : forEach, map, flatMap, filter, some, every, find, findIndex, from
+*/
+
+// < 배열 순회 함수 >
+// 콜백함수를 받는다, 배열을 순회하며 콜백함수에게 값을 전달한다.
+// callback(curValue, curIndex, Array) -> 콜백함수의 인자로 현재값, 현재 인덱스, 배열 자체를 전달한다.
+
+
+// forEach : 콜백함수를 실행만      (return : undefined)
+Array.prototype.forEach = function (callback, thisArg) {
+    for (let i = 0; i < this.length; i++) {
+        callback.call(thisArg, this[i], i, this);
+    }
+};
+// ex
+console.log("forEach ----------");
+let forEachEx = [1, 2, 3].forEach((value, index) => console.log(value * index));
+console.log
+
+
+
+// map : 콜백함수의 리턴값으로 새 배열 생성     (return : 생성된 배열)
+Array.prototype.map = function (callback, thisArg) {
+    let mappedArr = [];
+    for (let i = 0; i < this.length; i++) {
+        let mappedValue = callback.call(thisArg || global, this[i], i, this);
+        mappedArr[i] = mappedValue;
+    }
+    return mappedArr;
+};
+// ex
+console.log("map ----------");
+let mapEx = [1, 2, 3].map((value, index) => value * index);
+console.log(mapEx);
+
+
+
+// flatMap : map과 동일 + 한층 벗겨진 새 배열 생성      (return : 생성된 배열)
+Array.prototype.FlatMap = function (callback, thisArg) {
+    let mappedArr = [];
+    let idx = 0;
+
+    for (let i = 0; i < this.length; i++) {
+        let mappedValue = callback.call(thisArg || global, this[i], i, this);
+
+        if (typeof mappedValue === 'object') { // 콜백함수의 리턴값이 배열(object)일 때, 배열을 한층 벗김
+            for (let j = 0; j < mappedValue.length; j++) {
+                mappedArr[idx++] = mappedValue[j];
+            }
+        } else {
+            mappedArr[idx++] = mappedValue;
+        }
+    }
+    return mappedArr;
+};
+// ex
+console.log("flatMap ----------");
+let flatMapEx = [1, 2, 3].FlatMap((value, idx) => [value, idx]);
+let compare = [1, 2, 3].map((value, idx) => [value, idx]);
+console.log(flatMapEx, compare);
+
+
+
+// filter : 콜백함수의 리턴값이 true인 요소들로 새 배열 생성      (return : 생성된 배열)
+Array.prototype.filter = function (callback, thisArg) {
+    let filteredArr = [];
+    let idx = 0;
+
+    for (let i = 0; i < this.length; i++) {
+        let condition = callback.call(thisArg, this[i], i, this);
+        if (condition) {
+            filteredArr[idx++] = this[i];
+        }
+    }
+    return filteredArr;
+};
+// ex
+console.log("filter ----------");
+let filterEx = [1, 2, 3].filter(value => value % 2 == 0);
+console.log(filterEx);
+
+
+
+// some : 콜백함수의 리턴값이 적어도 하나 true인 경우 true 리턴       (return : true | false)
+Array.prototype.some = function (callback, thisArg) {
+    for (let i = 0; i < this.length; i++) {
+        let condition = callback.call(thisArg, this[i], i, this);
+        if (condition) {
+            return true;
+        }
+    }
+    return false;
+};
+// ex
+console.log("some ----------");
+let someEx = [1, 2, 3].some(value => value >= 2);
+console.log(someEx);
+
+
+
+// every : 콜백함수의 리턴값이 모두 true인 경우 true 리턴       (return : true | false)
+Array.prototype.every = function (callback, thisArg) {
+    for (let i = 0; i < this.length; i++) {
+        let condition = callback.call(thisArg, this[i], i, this);
+        if (!condition) {
+            return false;
+        }
+    }
+    return true;
+};
+// ex
+console.log("every ----------");
+let everyEx = [1, 2, 3].every(value => value >= 2);
+console.log(everyEx);
+
+
+
+// find : 콜백함수의 리턴값이 true인 첫번째 요소 반환       (return : 배열 요소 | undefined)
+Array.prototype.find = function (callback, thisArg) {
+    for (let i = 0; i < this.length; i++) {
+        let condition = callback.call(thisArg, this[i], i, this);
+        if (condition) {
+            return this[i];
+        }
+    }
+    return undefined;
+};
+// ex
+console.log("find ----------");
+let findEx = [1, 2, 3].find(value => value >= 2);
+console.log(findEx);
+
+
+
+// findIndex : 콜백함수의 리턴값이 true인 첫번째 요소의 인덱스 반환       (return : 배열 인덱스 | -1)
+Array.prototype.FindIndex = function (callback, thisArg) {
+    for (let i = 0; i < this.length; i++) {
+        let condition = callback.call(thisArg, this[i], i, this);
+        if (condition) {
+            return i;
+        }
+    }
+    return -1;
+};
+// ex
+console.log("findIndex ----------");
+let findIndexEx = [1, 2, 3].findIndex(value => value >= 2);
+console.log(findIndexEx);
+
+
+
+// from : 유사배열, 순회가능 객체로 배열 생성       (return : 생성된 배열)
+Array.prototype.from = function (arrLike) {
+    let arr = [];
+    let idx = 0;
+    for (let i = 0; i < arrLike.length; i++) {
+        arr[idx++] = arrLike[i];
+    }
+    return arr;
+};
+//ex
+console.log("from ----------");
+let obj = {
+    0: "abc",
+    1: "def",
+    2: "ghi",
+    length: 3
+};
+let str = "string";
+
+let fromEx1 = Array.prototype.from(obj);
+let fromEx2 = Array.prototype.from(str);
+console.log(fromEx1, fromEx2);
