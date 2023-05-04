@@ -2,24 +2,26 @@
     #assignment / 23.05.02 leejuchan
 
     @brief : 배열 순회 메소드 구현
-    @details : forEach, map, flatMap, filter, some, every, find, findIndex, from
+    @details : forEach, map, flatMap, filter, some, every, find, findIndex, from / Map.forEach, Set.forEach
 */
 
-// < 배열 순회 함수 >
-// 콜백함수를 받는다, 배열을 순회하며 콜백함수에게 값을 전달한다.
-// callback(curValue, curIndex, Array) -> 콜백함수의 인자로 현재값, 현재 인덱스, 배열 자체를 전달한다.
+// < 순회 함수 >
+// 콜백함수를 인자로 받는다, Array, Map, Set을 순회하며 콜백함수에게 값을 전달한다.
+// 콜백 함수의 인자로 전달되는 값 -> callback(curValue, curIndex, Array) : 현재값, 현재 인덱스, 객체(Array, Map, Set 자체)
 
+let obj = { a: "test" };
+
+// 1. Array
 
 // forEach : 콜백함수를 실행만      (return : undefined)
 Array.prototype.forEach = function (callback, thisArg) {
     for (let i = 0; i < this.length; i++) {
-        callback.call(thisArg, this[i], i, this);
+        callback.call(thisArg || global, this[i], i, this);
     }
 };
 // ex
 console.log("forEach ----------");
 let forEachEx = [1, 2, 3].forEach((value, index) => console.log(value * index));
-console.log
 
 
 
@@ -60,8 +62,9 @@ Array.prototype.FlatMap = function (callback, thisArg) {
 // ex
 console.log("flatMap ----------");
 let flatMapEx = [1, 2, 3].FlatMap((value, idx) => [value, idx]);
-let compare = [1, 2, 3].map((value, idx) => [value, idx]);
-console.log(flatMapEx, compare);
+// let compare = [1, 2, 3].map((value, idx) => [value, idx]);
+// console.log(flatMapEx, compare);
+console.log(flatMapEx);
 
 
 
@@ -164,14 +167,48 @@ Array.prototype.from = function (arrLike) {
 };
 //ex
 console.log("from ----------");
-let obj = {
-    0: "abc",
-    1: "def",
-    2: "ghi",
+let o = {
+    0: "a",
+    1: "b",
+    2: "c",
     length: 3
 };
-let str = "string";
+let s = "string";
 
-let fromEx1 = Array.prototype.from(obj);
-let fromEx2 = Array.prototype.from(str);
+let fromEx1 = Array.prototype.from(o);
+let fromEx2 = Array.prototype.from(s);
 console.log(fromEx1, fromEx2);
+
+
+
+// 2. Map, Set
+
+// map : 다양한 타입의 키 값      (<-> object : String type 키 값만 존재)
+// set : 키 값 x, 중복 허용 x
+
+
+// map.forEach : 콜백함수 인자로 callback(curValue, curKey, Map) 전달
+Map.prototype.forEach = function(callback, thisArg) {
+    for(let element of this) {
+        callback.call(thisArg || global, element[1], element[0], this);
+    }
+}
+
+let myMap = new Map([
+    ["a", 3],
+    ["3", 7],
+    [3, 7]
+]);
+myMap.forEach((value, index) => console.log(value + index));
+
+
+
+// set.forEach : 콜백함수 인자로 callback(curValue, curValue, Set) 전달 (set은 키가 없음)
+Set.prototype.forEach = function(callback, thisArg) {
+    for(let value of this) {
+        callback.call(thisArg || global, value, value, this);
+    }
+}
+
+let mySet = new Set([1,2,3]);
+mySet.forEach((value) => console.log(value * 2));
